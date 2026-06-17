@@ -1,15 +1,3 @@
-/* Exploring data about real estate in USA in SQL (MySQL version)
-Skills used: aggregation, GROUP BY, window/date functions.
-
-Porting notes (BigQuery -> MySQL):
-- `project.dataset.` prefixes dropped; run against a single database (USE real_estate_us; from
-  data_cleaning_mysql.sql).
-- `FORMAT_DATE('%B', sold_date)` -> `DATE_FORMAT(sold_date, '%M')`.
-- `EXTRACT(YEAR FROM ...)` is valid in both dialects, unchanged.
-- The self-referencing `CREATE OR REPLACE TABLE re_us_property AS SELECT ... FROM re_us_property`
-  is rewritten with the temp-table-and-rename pattern (MySQL can't rebuild a table from itself
-  in one statement). */
-
 USE real_estate_us;
 
 ------------------------------------------------------------------------

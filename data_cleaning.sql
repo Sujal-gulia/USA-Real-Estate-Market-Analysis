@@ -1,38 +1,17 @@
-/* Data cleaning using SQL (MySQL version)
-Skills used: CREATE TABLE ... AS SELECT, GROUP BY, ORDER BY, REPLACE, CASE, window functions,
-CTEs, removing duplicates, inadequate and unnecessary data.
-
-Porting notes (BigQuery -> MySQL):
-- Original script ran in BigQuery Standard SQL against a `project.dataset.table` hierarchy.
-  Here it targets a single MySQL database, selected with USE below; all `project.dataset.`
-  prefixes are dropped.
-- BigQuery's `CREATE OR REPLACE TABLE x AS SELECT ... FROM x` (rewriting a table from itself in
-  one statement) has no MySQL equivalent. Every self-referencing step below is rewritten as:
-  build into a `_tmp` table -> drop the original -> rename `_tmp` into place.
-- INT64 -> SIGNED, FLOAT64 -> DECIMAL(15,6), STRING -> CHAR (MySQL CAST target types).
-- A couple of steps in the original appear to have been done via the BigQuery console
-  (e.g. `re_us4` is used before it's ever created in-script). Those are made explicit as SQL
-  here and flagged inline, so this version runs top-to-bottom without gaps. */
-
 USE real_estate_us;
-
-----------------------------------------------------------------------------------
-
-/* First look at the dataset */
 
 SELECT *
 FROM re_us
 LIMIT 1000;
 
 
-/* Remove duplicates and create a new table */
+/* Removing duplicates */
 
 DROP TABLE IF EXISTS re_us1;
 CREATE TABLE re_us1 AS
 SELECT DISTINCT *
 FROM re_us;
 
-/* The dataset has decreased by almost 9 times */
 
 
 
