@@ -44,7 +44,7 @@ This project answers those questions using a public Kaggle real-estate dataset, 
 **3. Trends & seasonality** — year-over-year sales trends by state and month-over-month seasonality, to support timing decisions.
 ![Dashboard 3 — trends and seasonality](assets/dashboard-3-trends-seasonality.png)
 
-> Full interactive file: [`Real_Estate_USA_Dashboards.pbix`](Real_Estate_USA_Dashboards.pbix) (requires Power BI Desktop) · Static export: [`Real_Estate_USA_Dashboards.pdf`](Real_Estate_USA_Dashboards.pdf)
+> Full interactive file: [`Real_Estate_USA_Dashboards.pbix`](Real_Estate_USA_Dashboards.pbix) (requires Power BI Desktop)
 
 ## Data & methodology
 
